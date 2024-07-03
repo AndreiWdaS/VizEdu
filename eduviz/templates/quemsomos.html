@@ -1,0 +1,30 @@
+{% extends  'base.html' %} <!-- esse eh o base -->
+{% load static %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quem somos</title>
+</head>
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="d-flex align-items-center">
+                <img src="{% static 'img/ufsc.png' %}" alt="UFSC Araranguá" class="custom-margin-right" style="width: 100px; height: auto;">
+                <p>‎ ‎ ‎ ‎ Nossa equipe é formada pelos alunos de graduação em Tecnologias da Informação e Comunicação, Andrei Willian e Vitória Raupp, ‎ ‎ ‎ ‎ orientados pela Professora Dr. Marina Carradore.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div>
+                <p>Conheça mais sobre o curso de Tecnologias da Informação e Comunicação em: <a href="https://tic.ufsc.br/">tic.ufsc.br</a></p>
+            </div>
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/unDYgdx6sw4?si=EQHroGYTUrW1NDzx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</html>
+{% endblock %}

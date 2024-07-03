@@ -1,0 +1,16 @@
+<!-- templates/grafico.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Presença de Internet nas Escolas por UF</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Presença de Internet nas Escolas por UF</h1>
+    <div id="grafico"></div>
+    <script type="text/javascript">
+        var grafico = {{ graph_json | safe }};
+        Plotly.newPlot('grafico', grafico.data, grafico.layout);
+    </script>
+</body>
+</html>

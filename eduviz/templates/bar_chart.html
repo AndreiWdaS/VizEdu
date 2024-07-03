@@ -1,0 +1,47 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Barras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Gráfico de Barras</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    {{ form.year.label_tag }}
+                    {{ form.year }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form.parameter.label_tag }}
+                    {{ form.parameter }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.states.label_tag }}
+                {% for checkbox in form.states %}
+                    <div class="form-check">
+                        {{ checkbox }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Gerar Gráfico</button>
+        </form>
+        <div id="graph" class="mt-5">
+            {% if graph_html %}
+                {{ graph_html|safe }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends  'base.html' %}
+{% load static %}
+{% block conteudo %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Coroplético</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Mapa Coroplético</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.year.label_tag }}
+                    {{ form.year }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.parameter.label_tag }}
+                    {{ form.parameter }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Gerar Mapa</button>
+        </form>
+        <div id="graph" class="mt-5">
+            {% if graph_html %}
+                {{ graph_html|safe }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // List of Brazilian states
+        var estados = [
+            'Acre (AC)', 'Alagoas (AL)', 'Amapá (AP)', 'Amazonas (AM)', 'Bahia (BA)', 
+            'Ceará (CE)', 'Distrito Federal (DF)', 'Espírito Santo (ES)', 'Goiás (GO)', 
+            'Maranhão (MA)', 'Mato Grosso (MT)', 'Mato Grosso do Sul (MS)', 'Minas Gerais (MG)', 
+            'Pará (PA)', 'Paraíba (PB)', 'Paraná (PR)', 'Pernambuco (PE)', 'Piauí (PI)', 
+            'Rio de Janeiro (RJ)', 'Rio Grande do Norte (RN)', 'Rio Grande do Sul (RS)', 
+            'Rondônia (RO)', 'Roraima (RR)', 'Santa Catarina (SC)', 'São Paulo (SP)', 
+            'Sergipe (SE)', 'Tocantins (TO)'
+        ];
+
+        // Generate random data for the years 2000 to 2023 for each state
+        var fullData = [['Year', 'Estado', 'Sales', 'Expenses'],
+                    ['2013',  'Tocantins (TO)' ,1000,  400],
+                    ['2014', 'Rio Grande do Norte (RN)' ,1170,  460],
+                    ['2015', 'Distrito Federal (DF)' ,660,   1120],
+                    ['2016',  'Santa Catarina (SC)' ,1030,  540]
+                    ['2012',  'Santa Catarina (SC)' ,1030,  540]
+    
+    ];
+    
+
+        // Function to create dropdown list for states
+        function createStateDropdown() {
+            var select = document.getElementById('state_dropdown');
+            estados.forEach(function(estado) {
+                var option = document.createElement('option');
+                option.value = estado.split(' ')[1].replace('(', '').replace(')', '');
+                option.text = estado;
+                select.appendChild(option);
+            });
+        }
+
+        // Callback that creates and populates a data table,
+        // instantiates the area chart, passes in the data and
+        // draws it.
+        function drawChart() {
+            var selectedYears = getSelectedYears();
+            var selectedState = getSelectedState();
+
+            // Filter data based on selected years and state
+            var filteredData = fullData.filter(function(row) {
+                return (selectedYears.includes(row[0]) || row[0] === 'Year') && 
+                       (row[1] === selectedState || row[1] === 'Estado');
+            });
+
+            // Create the data table.
+            var data = google.visualization.arrayToDataTable(filteredData);
+
+            // Set chart options
+            var options = {
+                title: 'Company Performance',
+                hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+                vAxis: {minValue: 0}
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+        // Get selected years from checkboxes
+        function getSelectedYears() {
+            var checkboxes = document.querySelectorAll('input[name="year"]:checked');
+            var selectedYears = Array.from(checkboxes).map(function(checkbox) {
+                return checkbox.value;
+            });
+            return selectedYears;
+        }
+
+        // Get selected state from dropdown
+        function getSelectedState() {
+            var dropdown = document.getElementById('state_dropdown');
+            return dropdown.value;
+        }
+
+        // Initialize dropdown on page load
+        window.onload = function() {
+            createStateDropdown();
+            drawChart(); // Initial draw
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .controls div {
+            margin-bottom: 10px;
+        }
+        #chart_div {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Area for selecting variables -->
+    <div class="controls">
+        <h2>Seleção de Variáveis</h2>
+        
+        <!-- Dropdown for selecting a state -->
+        <div>
+            <label for="state_dropdown">Selecione o Estado:</label>
+            <select id="state_dropdown" onchange="drawChart()">
+                <!-- Options will be populated here -->
+            </select>
+        </div>
+
+        <!-- Checkboxes for selecting years -->
+        <div>
+            <label><input type="checkbox" name="year" value="2013" checked onchange="drawChart()"> 2013</label>
+            <label><input type="checkbox" name="year" value="2014" checked onchange="drawChart()"> 2014</label>
+            <label><input type="checkbox" name="year" value="2015" checked onchange="drawChart()"> 2015</label>
+            <label><input type="checkbox" name="year" value="2016" checked onchange="drawChart()"> 2016</label>
+            <label><input type="checkbox" name="year" value="2017" checked onchange="drawChart()"> 2017</label>
+            <label><input type="checkbox" name="year" value="2018" checked onchange="drawChart()"> 2018</label>
+            <label><input type="checkbox" name="year" value="2019" checked onchange="drawChart()"> 2019</label>
+            <label><input type="checkbox" name="year" value="2020" checked onchange="drawChart()"> 2020</label>
+            <label><input type="checkbox" name="year" value="2021" checked onchange="drawChart()"> 2021</label>
+            <label><input type="checkbox" name="year" value="2022" checked onchange="drawChart()"> 2022</label>
+            <label><input type="checkbox" name="year" value="2023" checked onchange="drawChart()"> 2023</label>
+        </div>
+    </div>
+
+    <!-- Div that will hold the area chart -->
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+</body>
+</html>
