@@ -1,4 +1,4 @@
-{% extends  'base.html' %} <!-- esse eh o base -->
+{% extends 'base.html' %}
 {% load static %}
 {% block conteudo %}
 <!DOCTYPE html>
@@ -6,25 +6,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Quem somos</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        .title-with-image {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title-with-image h1 {
+            margin-right: 20px; /* Espaço maior entre o título e a imagem */
+        }
+    </style>
 </head>
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="d-flex align-items-center">
-                <img src="{% static 'img/ufsc.png' %}" alt="UFSC Araranguá" class="custom-margin-right" style="width: 100px; height: auto;">
-                <p>‎ ‎ ‎ ‎ Nossa equipe é formada pelos alunos de graduação em Tecnologias da Informação e Comunicação, Andrei Willian e Vitória Raupp, ‎ ‎ ‎ ‎ orientados pela Professora Dr. Marina Carradore.</p>
+<body>
+    <div class="container-fluid px-4">
+        <div class="card mb-4">
+            <div class="card-body title-with-image">
+                <h1 class="text-primary mb-0">Quem somos?</h1>
+                <img src="{% static 'img/ufsc.png' %}" alt="UFSC Araranguá" class="custom-margin-left" style="width: 100px; height: auto;">
             </div>
         </div>
-    </div>
 
-    <div class="card mb-4">
-        <div class="card-body">
-            <div>
-                <p>Conheça mais sobre o curso de Tecnologias da Informação e Comunicação em: <a href="https://tic.ufsc.br/">tic.ufsc.br</a></p>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="text-center text-primary mb-4">Conheça a nossa equipe</h2>
+                <div class="card-body">
+                    <p></p>
+                </div>
+                <div class="row text-center">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="{% static 'img/andrei.jpg' %}" alt="Andrei Willian" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px;">
+                        <h5>Andrei Willian</h5>
+                        <p>Aluno de graduação em Tecnologias da Informação e Comunicação. Apaixonado por tecnologia e educação.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="{% static 'img/vitoria.jpg' %}" alt="Vitória Raupp" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px;">
+                        <h5>Vitória Raupp</h5>
+                        <p>Aluna de graduação em Tecnologias da Informação e Comunicação. Interessada em inovação e desenvolvimento tecnológico.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <img src="{% static 'img/marina.jpg' %}" alt="Marina Carradore" class="img-fluid rounded-circle mb-2" style="width: 150px; height: 150px;">
+                        <h5>Professora Dr. Marina Carradore</h5>
+                        <p>Orientadora do projeto e professora dedicada à integração de tecnologia e educação.</p>
+                    </div>
+                </div>
             </div>
-            <div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <p>Conheça mais sobre o curso de Tecnologias da Informação e Comunicação:</p>
+                <a href="https://tic.ufsc.br/" class="btn btn-primary">Visitar Site</a>
+            </div>
+            <div class="card-body text-center">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/unDYgdx6sw4?si=EQHroGYTUrW1NDzx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </div>
+</body>
 </html>
 {% endblock %}

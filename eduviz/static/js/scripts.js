@@ -24,3 +24,25 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('graph-form').addEventListener('submit', function(event) {
+        var submitButton = document.getElementById('submit-button');
+        var loadingButton = document.getElementById('loading-button');
+
+        // Troca os botões
+        submitButton.style.display = 'none';
+        loadingButton.style.display = 'inline-block';
+
+        // Opcional: Se o formulário estiver sendo enviado via AJAX
+        // event.preventDefault(); // Impede o envio do formulário para teste
+        // Simulação de uma ação assíncrona
+        /*
+        setTimeout(function() {
+            // Reverter os botões após a ação ser concluída
+            loadingButton.style.display = 'none';
+            submitButton.style.display = 'inline-block';
+        }, 3000); // Esconde o botão de carregamento após 3 segundos
+        */
+    });
+});

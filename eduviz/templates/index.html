@@ -1,4 +1,4 @@
-{% extends  'base.html' %} <!-- esse eh o base -->
+{% extends 'base.html' %}
 {% load static %}
 {% block conteudo %}
 <!DOCTYPE html>
@@ -6,49 +6,53 @@
 <head>
     <meta charset="UTF-8">
     <title>EduViz</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-  <div class="container-fluid px-4">
-    <h1 class="mt-4">Dashboard EduViz</h1>
-    <ol class="breadcrumb mb-4"></ol>
-</div>
-<h2>Descubra o EduViz: Visualize a Educação Brasileira com Clareza!</h2>
-
- <div class="card mb-4">
-     <div class="card-body">
-         <p>O EduViz é um sistema web inovador que transforma dados educacionais em visualizações de fácil compreensão. Nossa missão é democratizar o acesso à informação sobre os recursos tecnológicos na educação brasileira.</p>
-         <p>Através do EduViz, você pode explorar um mundo de dados detalhados sobre:</p>
-         <ul>
-             <li><strong>Laboratórios de informática:</strong> Quantidade, distribuição regional e tipologias.</li>
-             <li><strong>Computadores:</strong> Número de máquinas, acesso por aluno e conectividade.</li>
-             <li><strong>Redes Wi-Fi:</strong> Cobertura, qualidade e velocidade de conexão.</li>
-             <li><strong>Equipamentos multimídia:</strong> Diversidade de recursos audiovisuais disponíveis.</li>
-             <li><strong>Disponibilidade de energia elétrica:</strong> Garantia de infraestrutura para o uso dos recursos tecnológicos.</li>
-         </ul>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dashboard EduViz</h1>
+        <ol class="breadcrumb mb-4"></ol>
+        
+        <h2 class="text-center text-primary my-4">Descubra o EduViz: Visualize a Educação Brasileira com Clareza!</h2>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>O EduViz é um sistema web inovador que transforma dados educacionais em visualizações de fácil compreensão. Nossa missão é democratizar o acesso à informação sobre os recursos tecnológicos na educação brasileira.</p>
+                <p>Através do EduViz, você pode explorar um mundo de dados detalhados sobre:</p>
+                <ul>
+                    <li><strong>Laboratórios de informática:</strong> Quantidade, distribuição regional e tipologias.</li>
+                    <li><strong>Computadores:</strong> Número de máquinas, acesso por aluno e conectividade.</li>
+                    <li><strong>Redes Wi-Fi:</strong> Cobertura, qualidade e velocidade de conexão.</li>
+                    <li><strong>Equipamentos multimídia:</strong> Diversidade de recursos audiovisuais disponíveis.</li>
+                    <li><strong>Disponibilidade de energia elétrica:</strong> Garantia de infraestrutura para o uso dos recursos tecnológicos.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3 class="text-center text-secondary my-4">Com o EduViz, você pode:</h3>
+        <div class="card mb-4">
+            <div class="card-body">
+                <ul>
+                    <li><strong>Desvendar a realidade da educação brasileira:</strong> Explore indicadores por estado, município, escola e tipo de ensino.</li>
+                    <li><strong>Identificar desigualdades e oportunidades:</strong> Compare dados entre diferentes regiões e grupos sociais.</li>
+                    <li><strong>Embasar decisões estratégicas:</strong> Utilize informações confiáveis para formular políticas públicas e projetos educacionais.</li>
+                    <li><strong>Promover a transparência e accountability:</strong> Acompanhe o investimento e a utilização de recursos públicos na educação.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3 class="text-center text-secondary my-4">O EduViz é ideal para:</h3>
+        <div class="card mb-4">
+            <div class="card-body">
+                <ul>
+                    <li><strong>Gestores públicos e privados:</strong> Tomar decisões baseadas em dados concretos.</li>
+                    <li><strong>Pesquisadores e estudiosos da educação:</strong> Analisar tendências e formular novas pesquisas.</li>
+                    <li><strong>Professores e educadores:</strong> Aprimorar o planejamento pedagógico e engajar os alunos.</li>
+                    <li><strong>Cidadãos interessados na educação:</strong> Acompanhar o progresso e cobrar melhores resultados.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    </div>
-    <h3>Com o EduViz, você pode:</h3>
-    <div class="card mb-4">
-     <div class="card-body">
-    <ul>
-      <li><strong>Desvendar a realidade da educação brasileira:</strong> Explore indicadores por estado, município, escola e tipo de ensino.</li>
-      <li><strong>Identificar desigualdades e oportunidades:</strong> Compare dados entre diferentes regiões e grupos sociais.</li>
-      <li><strong>Embasar decisões estratégicas:</strong> Utilize informações confiáveis para formular políticas públicas e projetos educacionais.</li>
-      <li><strong>Promover a transparência e accountability:</strong> Acompanhe o investimento e a utilização de recursos públicos na educação.</li>
-    </ul>
-    </div>
-    </div>
-<h3>O EduViz é ideal para:</h3>
-    <div class="card mb-4">
-     <div class="card-body">
-    <ul>
-      <li><strong>Gestores públicos e privados:</strong> Tomar decisões baseadas em dados concretos.</li>
-      <li><strong>Pesquisadores e estudiosos da educação:</strong> Analisar tendências e formular novas pesquisas.</li>
-      <li><strong>Professores e educadores:</strong> Aprimorar o planejamento pedagógico e engajar os alunos.</li>
-      <li><strong>Cidadãos interessados na educação:</strong> Acompanhar o progresso e cobrar melhores resultados.</li>
-    </ul>
-     </div>
-     </div>
 </body>
 </html>
 {% endblock %}
